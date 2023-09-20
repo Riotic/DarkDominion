@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=3 uid="uid://xvcwo63taepj"]
+
+[ext_resource type="Texture2D" uid="uid://c1vcjycgsbbgf" path="res://Assets/Img/ImgButtons/Emerald-green-painted-swatch.jpg" id="1_ex2d2"]
+[ext_resource type="Script" path="res://Scripts/Boards/choose_actions.gd" id="1_kw38l"]
+[ext_resource type="Texture2D" uid="uid://cqldgqkcxrhre" path="res://Assets/Img/ImgButtons/Emerald-green-painted-swatch-clicked.jpg" id="2_3d3nq"]
+[ext_resource type="Texture2D" uid="uid://bwnv555ollc5e" path="res://Assets/Img/ImgButtons/dark-red-color-solid-background-1920x1080.png" id="2_64hqs"]
+[ext_resource type="Texture2D" uid="uid://2yird2fpywnf" path="res://Assets/Img/ImgButtons/téléchargement.png" id="4_5x331"]
+[ext_resource type="Texture2D" uid="uid://cf2hi7ypw7nn6" path="res://Assets/Img/ImgButtons/Chrome-red-painted-swatch-N.jpg" id="5_tjkw3"]
+[ext_resource type="Texture2D" uid="uid://bdtory3vieo2s" path="res://Assets/Img/ImgButtons/yellow.jpg" id="7_cue3s"]
+
+[sub_resource type="Theme" id="Theme_07wqd"]
+default_base_scale = 0.55
+/styles/Test = null
+
+[sub_resource type="Theme" id="Theme_ltus2"]
+
+[node name="ChooseActions" type="Node2D"]
+script = ExtResource("1_kw38l")
+
+[node name="SceneActions" type="ReferenceRect" parent="."]
+offset_right = 85.0
+offset_bottom = 78.0
+
+[node name="containerActions" type="ReferenceRect" parent="SceneActions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Attack" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 93.0
+offset_right = 451.0
+offset_bottom = 133.0
+theme = SubResource("Theme_07wqd")
+theme_type_variation = &"test"
+toggle_mode = true
+texture_normal = ExtResource("1_ex2d2")
+texture_pressed = ExtResource("2_3d3nq")
+texture_disabled = ExtResource("2_64hqs")
+
+[node name="Label" type="Label" parent="SceneActions/containerActions/Attack"]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 40.0
+theme = SubResource("Theme_ltus2")
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DrawMalice" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 94.0
+offset_right = 315.0
+offset_bottom = 134.0
+toggle_mode = true
+texture_normal = ExtResource("1_ex2d2")
+texture_pressed = ExtResource("2_3d3nq")
+texture_disabled = ExtResource("2_64hqs")
+
+[node name="Label2" type="Label" parent="SceneActions/containerActions/DrawMalice"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 107.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 10
+text = "Draw Malice Deck"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Summon" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 153.0
+offset_right = 365.0
+offset_bottom = 193.0
+toggle_mode = true
+texture_normal = ExtResource("1_ex2d2")
+texture_pressed = ExtResource("2_3d3nq")
+texture_disabled = ExtResource("2_64hqs")
+
+[node name="Label3" type="Label" parent="SceneActions/containerActions/Summon"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 110.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 10
+text = "Summon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Discard" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 91.0
+offset_right = 594.0
+offset_bottom = 131.0
+toggle_mode = true
+texture_normal = ExtResource("1_ex2d2")
+texture_pressed = ExtResource("2_3d3nq")
+texture_disabled = ExtResource("2_64hqs")
+
+[node name="Label4" type="Label" parent="SceneActions/containerActions/Discard"]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 107.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 10
+text = "Discard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayEventCard" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 150.0
+offset_right = 527.0
+offset_bottom = 190.0
+toggle_mode = true
+texture_normal = ExtResource("1_ex2d2")
+texture_pressed = ExtResource("2_3d3nq")
+texture_disabled = ExtResource("2_64hqs")
+
+[node name="Label5" type="Label" parent="SceneActions/containerActions/PlayEventCard"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 111.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 10
+text = "Play event card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ValidActions" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 192.0
+offset_right = 697.0
+offset_bottom = 251.0
+disabled = true
+texture_normal = ExtResource("4_5x331")
+texture_disabled = ExtResource("5_tjkw3")
+
+[node name="Label" type="Label" parent="SceneActions/containerActions/ValidActions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ValiderActions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResetChoice" type="TextureButton" parent="SceneActions/containerActions"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 206.0
+offset_right = 199.0
+offset_bottom = 246.0
+texture_normal = ExtResource("7_cue3s")
+
+[node name="Label" type="Label" parent="SceneActions/containerActions/ResetChoice"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Reset"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="SceneActions/containerActions/Attack" to="." method="_on_attack_toggled"]
+[connection signal="toggled" from="SceneActions/containerActions/DrawMalice" to="." method="_on_draw_malice_toggled"]
+[connection signal="toggled" from="SceneActions/containerActions/Summon" to="." method="_on_summon_toggled"]
+[connection signal="toggled" from="SceneActions/containerActions/Discard" to="." method="_on_discard_toggled"]
+[connection signal="toggled" from="SceneActions/containerActions/PlayEventCard" to="." method="_on_play_event_card_toggled"]
+[connection signal="pressed" from="SceneActions/containerActions/ValidActions" to="." method="_on_valid_actions_pressed"]
+[connection signal="pressed" from="SceneActions/containerActions/ResetChoice" to="." method="_on_reset_choice_pressed"]

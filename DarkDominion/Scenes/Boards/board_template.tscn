@@ -1,0 +1,747 @@
+[gd_scene load_steps=12 format=3 uid="uid://bwva12ueqtm8f"]
+
+[ext_resource type="Texture2D" uid="uid://b783qd7unra4c" path="res://Assets/Img/ImgBoard/forestForBoard.png" id="1_tmxti"]
+[ext_resource type="Script" path="res://Scripts/Boards/board_template.gd" id="1_upyp3"]
+[ext_resource type="PackedScene" uid="uid://b0pwjuu25bpfa" path="res://Scenes/Boards/head_or_tail.tscn" id="2_800e5"]
+[ext_resource type="Texture2D" uid="uid://k62p8ps8u6mr" path="res://Assets/Img/ImgChara/picMainAnta.png" id="2_rjjnl"]
+[ext_resource type="Texture2D" uid="uid://wua8ye7qc6s1" path="res://Assets/Img/ImgIcons/lovepik-a-pile-of-gold-coins-png-image_401663376_wh1200-removebg-preview.png" id="3_akyyk"]
+[ext_resource type="Texture2D" uid="uid://cefj4y1tnjupo" path="res://Assets/Img/ImgChara/picMainAnta2.png" id="4_7h6t1"]
+[ext_resource type="Texture2D" uid="uid://dwm47dyw6y24q" path="res://Assets/Img/ImgChara/picMainChara.png" id="4_lk68h"]
+[ext_resource type="AudioStream" uid="uid://cl6bnoulqgnou" path="res://Assets/Musics/BackgroundMusic/Waven Ost ｜ ＂Dragon Pig - (Clean Version)＂.wav" id="6_7j021"]
+[ext_resource type="Texture2D" uid="uid://cnwlvss2l1rt8" path="res://Assets/Img/ImgButtons/blue.jpg" id="6_c63l6"]
+[ext_resource type="Texture2D" uid="uid://c8k5quf86isyh" path="res://Assets/Img/ImgChara/picMainChara2.png" id="7_dkeof"]
+[ext_resource type="PackedScene" uid="uid://xvcwo63taepj" path="res://Scenes/Boards/choose_actions.tscn" id="8_1g85c"]
+
+[node name="board_template" type="Node2D"]
+script = ExtResource("1_upyp3")
+
+[node name="BoardRect" type="ReferenceRect" parent="."]
+offset_right = 800.0
+offset_bottom = 300.0
+
+[node name="BackgroundRect" type="TextureRect" parent="BoardRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tmxti")
+expand_mode = 1
+
+[node name="OrganiseBoard" type="VBoxContainer" parent="BoardRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="OrganisePlayer2" type="VBoxContainer" parent="BoardRect/OrganiseBoard"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Organise2Player2" type="HBoxContainer" parent="BoardRect/OrganiseBoard/OrganisePlayer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerProfile" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerPicture" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/PlayerProfile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -121.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_rjjnl")
+expand_mode = 1
+
+[node name="PlayerPictureTurn" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/PlayerProfile"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -121.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_7h6t1")
+expand_mode = 1
+
+[node name="PlayerName" type="RichTextLabel" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/PlayerProfile"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 4.0
+offset_right = 187.0
+offset_bottom = 67.0
+text = "Briar JINN"
+
+[node name="ActionsDisplay" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayActions" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DrawMaliceDeck" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 58.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions/DrawMaliceDeck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DMD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 72.0
+offset_top = 13.0
+offset_right = 112.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions/Attack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Discard" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 13.0
+offset_right = 174.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions/Discard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Discard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Summon" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 13.0
+offset_right = 174.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions/Summon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "Summon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayEventCard" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 13.0
+offset_right = 174.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/ActionsDisplay/DisplayActions/PlayEventCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "PlayEvnt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardInHands2" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CoinsDisplay" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/CoinsDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_akyyk")
+expand_mode = 1
+
+[node name="NumberOfCoins" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/CoinsDisplay"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 3.0
+offset_right = 164.0
+offset_bottom = 43.0
+metadata/_edit_group_ = true
+
+[node name="DisplayNumber" type="RichTextLabel" parent="BoardRect/OrganiseBoard/OrganisePlayer2/Organise2Player2/CoinsDisplay/NumberOfCoins"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "    5"
+
+[node name="OrganisePlayer1" type="VBoxContainer" parent="BoardRect/OrganiseBoard"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Organise2Player1" type="HBoxContainer" parent="BoardRect/OrganiseBoard/OrganisePlayer1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CoinsDisplay" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/CoinsDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+offset_right = -97.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_akyyk")
+expand_mode = 1
+
+[node name="NumberOfCoins" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/CoinsDisplay"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 37.0
+offset_right = 68.0
+offset_bottom = 77.0
+metadata/_edit_group_ = true
+
+[node name="DisplayNumber" type="RichTextLabel" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/CoinsDisplay/NumberOfCoins"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "    5"
+
+[node name="CardInHands1" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionsDisplay" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayActions" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DrawMaliceDeck" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 58.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions/DrawMaliceDeck"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DMD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 72.0
+offset_top = 13.0
+offset_right = 112.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions/Attack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Discard" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 13.0
+offset_right = 174.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions/Discard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Discard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Summon" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 13.0
+offset_right = 174.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions/Summon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "Summon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayEventCard" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions"]
+visible = false
+layout_mode = 0
+offset_left = 134.0
+offset_top = 13.0
+offset_right = 174.0
+offset_bottom = 53.0
+texture = ExtResource("6_c63l6")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/ActionsDisplay/DisplayActions/PlayEventCard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+text = "PlayEvnt"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerProfile" type="ReferenceRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayerPicture" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/PlayerProfile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_lk68h")
+expand_mode = 1
+
+[node name="PlayerPictureTurn" type="TextureRect" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/PlayerProfile"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_dkeof")
+expand_mode = 1
+
+[node name="PlayerName" type="RichTextLabel" parent="BoardRect/OrganiseBoard/OrganisePlayer1/Organise2Player1/PlayerProfile"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 108.0
+offset_bottom = 66.0
+text = "Chara JINN"
+
+[node name="CardsDisplay2" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 296.0
+offset_top = 62.0
+offset_right = 498.0
+offset_bottom = 142.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="CardsDisplayed2" type="HBoxContainer" parent="BoardRect/CardsDisplay2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/CardsDisplay2/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.329412, 0.619608, 0.780392, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BoardRect/CardsDisplay2/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BoardRect/CardsDisplay2/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect4" type="ColorRect" parent="BoardRect/CardsDisplay2/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.6, 0.486275, 1, 1)
+
+[node name="CardsDisplay3" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 295.0
+offset_top = 150.0
+offset_right = 498.0
+offset_bottom = 234.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="CardsDisplayed2" type="HBoxContainer" parent="BoardRect/CardsDisplay3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/CardsDisplay3/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.329412, 0.619608, 0.780392, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BoardRect/CardsDisplay3/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.384314, 0.384314, 0.384314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BoardRect/CardsDisplay3/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect4" type="ColorRect" parent="BoardRect/CardsDisplay3/CardsDisplayed2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.6, 0.486275, 1, 1)
+
+[node name="DeckDisplayPlayer2" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 79.0
+offset_right = 71.0
+offset_bottom = 154.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/DeckDisplayPlayer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoardRect/DeckDisplayPlayer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ennemy deck"
+
+[node name="Defausse" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 97.0
+offset_top = 245.0
+offset_right = 147.0
+offset_bottom = 295.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/Defausse"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoardRect/Defausse"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Defausse J1"
+
+[node name="Defausse2" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 653.0
+offset_top = 4.0
+offset_right = 703.0
+offset_bottom = 54.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/Defausse2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.356863, 0.356863, 0.356863, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoardRect/Defausse2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Defausse J2"
+
+[node name="EndTurn" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 746.0
+offset_top = 81.0
+offset_right = 796.0
+offset_bottom = 131.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="BoardRect/EndTurn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+action_mode = 0
+text = "End Turn"
+text_overrun_behavior = 2
+
+[node name="DisplaySeconds" type="Label" parent="BoardRect/EndTurn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+
+[node name="DeckDisplayPlayer1" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 669.0
+offset_top = 150.0
+offset_right = 729.0
+offset_bottom = 225.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/DeckDisplayPlayer1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoardRect/DeckDisplayPlayer1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player Deck"
+
+[node name="DeckMalusDisplayPlayer2" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 160.0
+offset_right = 80.0
+offset_bottom = 220.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/DeckMalusDisplayPlayer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278431, 0.278431, 0.278431, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoardRect/DeckMalusDisplayPlayer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Malus deck Ennemy"
+
+[node name="DeckMalusDisplayPlayer1" type="ReferenceRect" parent="BoardRect"]
+layout_mode = 2
+offset_left = 662.0
+offset_top = 83.0
+offset_right = 737.0
+offset_bottom = 143.0
+size_flags_horizontal = 3
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="BoardRect/DeckMalusDisplayPlayer1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.321569, 0.321569, 0.321569, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoardRect/DeckMalusDisplayPlayer1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Malus deck J1"
+
+[node name="MusicBackground" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7j021")
+volume_db = 1.857
+
+[node name="TimerHeadOrTail" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerTurn" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="HeadOrTail" parent="." instance=ExtResource("2_800e5")]
+visible = false
+
+[node name="TimerSec" type="Timer" parent="."]
+
+[node name="ChooseActions" parent="." instance=ExtResource("8_1g85c")]
+
+[connection signal="pressed" from="BoardRect/EndTurn/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="TimerHeadOrTail" to="." method="_on_timer_head_or_tail_timeout"]
+[connection signal="timeout" from="TimerTurn" to="." method="_on_timer_turn_timeout"]
+[connection signal="timeout" from="TimerSec" to="." method="_on_timer_sec_timeout"]
+[connection signal="actionValid" from="ChooseActions" to="." method="_on_choose_actions_action_valid"]
